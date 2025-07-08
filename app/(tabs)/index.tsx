@@ -8,12 +8,9 @@ import {
   ScrollView,
   Image,
   SafeAreaView,
-  Dimensions,
-  Platform,
 } from 'react-native';
 import { router } from 'expo-router';
 
-const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 export default function SignIn() {
   const [email, setEmail] = useState('');
 
@@ -38,16 +35,30 @@ export default function SignIn() {
       
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         {/* Background Decorations */}
-        <View style={styles.backgroundGradient1} />
-        <View style={styles.backgroundGradient2} />
+        <Image
+          source={{ uri: 'https://c.animaapp.com/8EEkSz1P/img/vector-3.svg' }}
+          style={styles.backgroundVector1}
+          resizeMode="contain"
+        />
+        <Image
+          source={{ uri: 'https://c.animaapp.com/8EEkSz1P/img/vector-4456.svg' }}
+          style={styles.backgroundVector2}
+          resizeMode="contain"
+        />
 
         {/* Logo Section */}
         <View style={styles.logoSection}>
           <View style={styles.logoContainer}>
-            <View style={styles.logoIcon}>
-              <Text style={styles.logoIconText}>M</Text>
-            </View>
-            <Text style={styles.logoText}>Myuze</Text>
+            <Image
+              source={{ uri: 'https://c.animaapp.com/8EEkSz1P/img/frame-2147229896.svg' }}
+              style={styles.logoIcon}
+              resizeMode="contain"
+            />
+            <Image
+              source={{ uri: 'https://c.animaapp.com/8EEkSz1P/img/myuze.svg' }}
+              style={styles.logoText}
+              resizeMode="contain"
+            />
           </View>
           <Text style={styles.tagline}>
             Find your style with AI.{'\n'}Try it on. Own it.
@@ -149,33 +160,26 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     flexGrow: 1,
-    minHeight: screenHeight,
+    minHeight: 812,
   },
-  backgroundGradient1: {
+  backgroundVector1: {
     position: 'absolute',
-    width: screenWidth * 0.84,
-    height: screenHeight * 0.4,
+    width: 316,
+    height: 323,
     top: 0,
     left: 0,
-    backgroundColor: '#f8f9ff',
-    borderBottomRightRadius: 100,
-    opacity: 0.6,
   },
-  backgroundGradient2: {
+  backgroundVector2: {
     position: 'absolute',
-    width: screenWidth * 0.93,
-    height: screenHeight * 0.69,
-    top: screenHeight * 0.087,
-    left: screenWidth * 0.067,
-    backgroundColor: '#f0f4ff',
-    borderRadius: 60,
-    opacity: 0.4,
+    width: 350,
+    height: 558,
+    top: 71,
+    left: 25,
   },
   logoSection: {
     alignItems: 'center',
-    marginTop: screenHeight * 0.155,
+    marginTop: 126,
     paddingHorizontal: 24,
-    zIndex: 10,
   },
   logoContainer: {
     flexDirection: 'row',
@@ -186,21 +190,10 @@ const styles = StyleSheet.create({
   logoIcon: {
     width: 52,
     height: 52,
-    backgroundColor: '#4f46e5',
-    borderRadius: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logoIconText: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#fff',
   },
   logoText: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#1a1a1a',
-    letterSpacing: -1,
+    width: 110,
+    height: 32.29,
   },
   tagline: {
     fontSize: 16,
@@ -208,24 +201,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 24,
     letterSpacing: -0.24,
-    fontWeight: '400',
   },
   mainContent: {
     backgroundColor: '#fff',
-    marginTop: screenHeight * 0.098,
+    marginTop: 80,
     paddingHorizontal: 24,
     paddingTop: 24,
     flex: 1,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: -2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 5,
   },
   headerSection: {
     alignItems: 'center',
@@ -238,17 +220,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 8,
     letterSpacing: -0.5,
-    ...Platform.select({
-      ios: {
-        fontWeight: '600',
-      },
-      android: {
-        fontWeight: 'bold',
-      },
-      web: {
-        fontWeight: '600',
-      },
-    }),
   },
   subtitle: {
     fontSize: 14,
@@ -256,7 +227,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 21,
     letterSpacing: -0.24,
-    fontWeight: '400',
   },
   socialSection: {
     gap: 12,
@@ -298,7 +268,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#626369',
     letterSpacing: -0.32,
-    fontWeight: '400',
   },
   formSection: {
     gap: 16,
@@ -327,7 +296,6 @@ const styles = StyleSheet.create({
     color: '#1a1a1a',
     flex: 1,
     letterSpacing: -0.24,
-    fontWeight: '400',
   },
   signInButton: {
     height: 48,
@@ -355,7 +323,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#9ca3af',
     letterSpacing: -0.24,
-    fontWeight: '400',
   },
   signUpLink: {
     fontSize: 14,

@@ -6,13 +6,10 @@ import {
   TouchableOpacity,
   StyleSheet,
   SafeAreaView,
-  Dimensions,
-  Platform,
 } from 'react-native';
 import { router } from 'expo-router';
 import { ArrowLeft } from 'lucide-react-native';
 
-const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 export default function EmailVerification() {
   const [verificationCode, setVerificationCode] = useState(['', '', '', '']);
   const inputRefs = useRef<(TextInput | null)[]>([]);
@@ -155,17 +152,6 @@ const styles = StyleSheet.create({
     color: '#1a1a1a',
     textAlign: 'center',
     letterSpacing: -0.5,
-    ...Platform.select({
-      ios: {
-        fontWeight: '600',
-      },
-      android: {
-        fontWeight: 'bold',
-      },
-      web: {
-        fontWeight: '600',
-      },
-    }),
   },
   subtitle: {
     fontSize: 14,
@@ -173,7 +159,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 21,
     letterSpacing: -0.24,
-    fontWeight: '400',
   },
   codeSection: {
     alignItems: 'center',
@@ -193,17 +178,6 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#1a1a1a',
     backgroundColor: '#fff',
-    ...Platform.select({
-      ios: {
-        fontWeight: '500',
-      },
-      android: {
-        fontWeight: 'bold',
-      },
-      web: {
-        fontWeight: '500',
-      },
-    }),
   },
   resendSection: {
     flexDirection: 'row',
@@ -215,7 +189,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#66696e',
     letterSpacing: -0.24,
-    fontWeight: '400',
   },
   resendLink: {
     fontSize: 14,
@@ -225,7 +198,7 @@ const styles = StyleSheet.create({
   },
   verifyButton: {
     marginHorizontal: 24,
-    marginBottom: Math.max(60, screenHeight * 0.074),
+    marginBottom: 60,
     height: 48,
     backgroundColor: '#030318',
     borderRadius: 24,
