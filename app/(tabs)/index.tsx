@@ -10,9 +10,6 @@ import {
   SafeAreaView,
 } from 'react-native';
 import { router } from 'expo-router';
-import { LogoIcon } from '../../components/LogoIcon';
-import { LogoText } from '../../components/LogoText';
-import { BackgroundGradient1, BackgroundGradient2 } from '../../components/BackgroundGradient';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -38,14 +35,30 @@ export default function SignIn() {
       
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         {/* Background Decorations */}
-        <BackgroundGradient1 style={styles.backgroundVector1} />
-        <BackgroundGradient2 style={styles.backgroundVector2} />
+        <Image
+          source={{ uri: 'https://c.animaapp.com/8EEkSz1P/img/vector-3.svg' }}
+          style={styles.backgroundVector1}
+          resizeMode="contain"
+        />
+        <Image
+          source={{ uri: 'https://c.animaapp.com/8EEkSz1P/img/vector-4456.svg' }}
+          style={styles.backgroundVector2}
+          resizeMode="contain"
+        />
 
         {/* Logo Section */}
         <View style={styles.logoSection}>
           <View style={styles.logoContainer}>
-            <LogoIcon width={52} height={52} />
-            <LogoText width={110} height={32} />
+            <Image
+              source={{ uri: 'https://c.animaapp.com/8EEkSz1P/img/frame-2147229896.svg' }}
+              style={styles.logoIcon}
+              resizeMode="contain"
+            />
+            <Image
+              source={{ uri: 'https://c.animaapp.com/8EEkSz1P/img/myuze.svg' }}
+              style={styles.logoText}
+              resizeMode="contain"
+            />
           </View>
           <Text style={styles.tagline}>
             Find your style with AI.{'\n'}Try it on. Own it.
@@ -173,6 +186,14 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     gap: 8,
     marginBottom: 16,
+  },
+  logoIcon: {
+    width: 52,
+    height: 52,
+  },
+  logoText: {
+    width: 110,
+    height: 32.29,
   },
   tagline: {
     fontSize: 16,
